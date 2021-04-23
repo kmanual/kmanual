@@ -1,0 +1,6 @@
+*.suo
+/.vscode
+/.vs
+/**/obj
+/**/bin
+/Kmanual/appsettings.**.json

@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option csharp_namespace = "Kmanual";
+
+//package repository;
+
+// The greeting service definition.
+service Repository {
+  // Sends a greeting
+  rpc GetImageList (GetImageListReuqest) returns (GetImageListResponse);
+}
+
+// The request message to get list of images in the repo.
+message GetImageListReuqest {
+  bool all = 1;
+}
+
+// The response message containing the response.
+message GetImageListResponse {
+  repeated string repositories = 1;
+}
