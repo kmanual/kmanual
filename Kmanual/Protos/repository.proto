@@ -4,18 +4,39 @@ option csharp_namespace = "Kmanual";
 
 //package repository;
 
-// The greeting service definition.
 service Repository {
-  // Sends a greeting
   rpc GetImageList (GetImageListReuqest) returns (GetImageListResponse);
+  rpc GetTagList (GetTagListReuqest) returns (GetTagListResponse);
+  rpc GetManifest (GetManifestReuqest) returns (GetManifestResponse);
 }
 
-// The request message to get list of images in the repo.
 message GetImageListReuqest {
   bool all = 1;
 }
 
-// The response message containing the response.
 message GetImageListResponse {
   repeated string repositories = 1;
+}
+
+message GetTagListReuqest {
+  string name = 1;
+}
+
+message GetTagListResponse {
+  repeated string tags = 1;
+}
+
+message GetManifestReuqest {
+  string name = 1;
+  string tag = 2;
+}
+
+message GetManifestResponse {
+  Config config = 1;
+}
+
+message Config {
+  string mediaType = 1;
+  int32 size = 2;
+  string digest = 3;
 }

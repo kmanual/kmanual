@@ -30,7 +30,7 @@ namespace Kmanual.Docker
             return client.GetV2ObjectAsync<Repository>(uri);
         }
 
-        public Task<Manifest?> GetManifestsAsync(string name, string reference)
+        public Task<Manifest?> GetManifestAsync(string name, string reference)
         {
             var uri = $"{name}/manifests/{reference}";
             return client.GetV2ObjectAsync<Manifest>(uri);

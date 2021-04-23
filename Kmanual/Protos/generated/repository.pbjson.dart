@@ -28,3 +28,56 @@ const GetImageListResponse$json = const {
 
 /// Descriptor for `GetImageListResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getImageListResponseDescriptor = $convert.base64Decode('ChRHZXRJbWFnZUxpc3RSZXNwb25zZRIiCgxyZXBvc2l0b3JpZXMYASADKAlSDHJlcG9zaXRvcmllcw==');
+@$core.Deprecated('Use getTagListReuqestDescriptor instead')
+const GetTagListReuqest$json = const {
+  '1': 'GetTagListReuqest',
+  '2': const [
+    const {'1': 'name', '3': 1, '4': 1, '5': 9, '10': 'name'},
+  ],
+};
+
+/// Descriptor for `GetTagListReuqest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getTagListReuqestDescriptor = $convert.base64Decode('ChFHZXRUYWdMaXN0UmV1cWVzdBISCgRuYW1lGAEgASgJUgRuYW1l');
+@$core.Deprecated('Use getTagListResponseDescriptor instead')
+const GetTagListResponse$json = const {
+  '1': 'GetTagListResponse',
+  '2': const [
+    const {'1': 'tags', '3': 1, '4': 3, '5': 9, '10': 'tags'},
+  ],
+};
+
+/// Descriptor for `GetTagListResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getTagListResponseDescriptor = $convert.base64Decode('ChJHZXRUYWdMaXN0UmVzcG9uc2USEgoEdGFncxgBIAMoCVIEdGFncw==');
+@$core.Deprecated('Use getManifestReuqestDescriptor instead')
+const GetManifestReuqest$json = const {
+  '1': 'GetManifestReuqest',
+  '2': const [
+    const {'1': 'name', '3': 1, '4': 1, '5': 9, '10': 'name'},
+    const {'1': 'tag', '3': 2, '4': 1, '5': 9, '10': 'tag'},
+  ],
+};
+
+/// Descriptor for `GetManifestReuqest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getManifestReuqestDescriptor = $convert.base64Decode('ChJHZXRNYW5pZmVzdFJldXFlc3QSEgoEbmFtZRgBIAEoCVIEbmFtZRIQCgN0YWcYAiABKAlSA3RhZw==');
+@$core.Deprecated('Use getManifestResponseDescriptor instead')
+const GetManifestResponse$json = const {
+  '1': 'GetManifestResponse',
+  '2': const [
+    const {'1': 'config', '3': 1, '4': 1, '5': 11, '6': '.Config', '10': 'config'},
+  ],
+};
+
+/// Descriptor for `GetManifestResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getManifestResponseDescriptor = $convert.base64Decode('ChNHZXRNYW5pZmVzdFJlc3BvbnNlEh8KBmNvbmZpZxgBIAEoCzIHLkNvbmZpZ1IGY29uZmln');
+@$core.Deprecated('Use configDescriptor instead')
+const Config$json = const {
+  '1': 'Config',
+  '2': const [
+    const {'1': 'mediaType', '3': 1, '4': 1, '5': 9, '10': 'mediaType'},
+    const {'1': 'size', '3': 2, '4': 1, '5': 5, '10': 'size'},
+    const {'1': 'digest', '3': 3, '4': 1, '5': 9, '10': 'digest'},
+  ],
+};
+
+/// Descriptor for `Config`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List configDescriptor = $convert.base64Decode('CgZDb25maWcSHAoJbWVkaWFUeXBlGAEgASgJUgltZWRpYVR5cGUSEgoEc2l6ZRgCIAEoBVIEc2l6ZRIWCgZkaWdlc3QYAyABKAlSBmRpZ2VzdA==');
