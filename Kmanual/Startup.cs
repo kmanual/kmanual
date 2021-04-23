@@ -54,6 +54,7 @@ namespace Kmanual
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapGrpcService<RepositoryService>().EnableGrpcWeb();
+                endpoints.MapGrpcService<KubernetesService>().EnableGrpcWeb();
                 if (env.IsDevelopment())
                 {
                     endpoints.MapGrpcReflectionService();

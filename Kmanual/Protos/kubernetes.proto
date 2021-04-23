@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option csharp_namespace = "Kmanual";
+
+//package repository;
+
+service Kubernetes {
+  rpc GetNamespaceList (GetNamespaceListReuqest) returns (GetNamespaceListResponse);
+}
+
+message GetNamespaceListReuqest {
+}
+
+message GetNamespaceListResponse {
+  repeated string namespaces = 1;
+}

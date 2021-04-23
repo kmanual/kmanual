@@ -8,12 +8,14 @@
 
   <ItemGroup>
     <Protobuf Include="Protos\repository.proto" GrpcServices="Server" />
+    <Protobuf Include="Protos\kubernetes.proto" GrpcServices="Server" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Grpc.AspNetCore" Version="2.37.0" />
     <PackageReference Include="Grpc.AspNetCore.Web" Version="2.37.0" />
     <PackageReference Include="Grpc.AspNetCore.Server.Reflection" Version="2.37.0" />
+    <PackageReference Include="KubernetesClient" Version="5.0.2" />
   </ItemGroup>
 
   <ItemGroup>
