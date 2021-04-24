@@ -6,6 +6,7 @@ option csharp_namespace = "Kmanual";
 
 service Kubernetes {
   rpc GetNamespaceList (GetNamespaceListReuqest) returns (GetNamespaceListResponse);
+  rpc GetKServiceList (GetKServiceListReuqest) returns (GetKServiceListResponse);
 }
 
 message GetNamespaceListReuqest {
@@ -13,4 +14,11 @@ message GetNamespaceListReuqest {
 
 message GetNamespaceListResponse {
   repeated string namespaces = 1;
+}
+
+message GetKServiceListReuqest {
+}
+
+message GetKServiceListResponse {
+  repeated string services = 1;
 }
