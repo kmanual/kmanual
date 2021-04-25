@@ -3,6 +3,7 @@ using k8s;
 using k8s.Models;
 using Kmanual;
 using Kmanual.Docker;
+using Knative;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Linq;
 using System;
@@ -33,7 +34,13 @@ namespace Kmanual.Services
 
             var namespaces = await client.ListNamespaceAsync();
 
-            response.Namespaces.AddRange(from ns in namespaces.Items select ns.Metadata.Name);
+            if (namespaces.Items != null)
+            {
+                foreach (var item in namespaces.Items)
+                {
+                    response.Namespaces.Add(item.Metadata.Name);
+                }
+            }
 
             return response;
         }
@@ -42,14 +49,13 @@ namespace Kmanual.Services
         {
             var response = new GetKServiceListResponse();
 
-            if (await client.ListNamespacedCustomObjectAsync("serving.knative.dev", "v1", "default", "services") is JObject services)
+            var services = await client.ListNamespacedKServiceAsync(request.Namespace);
+
+            if (services.Items != null)
             {
-                if (services.GetValue("items") is JArray items)
+                foreach (var item in services.Items)
                 {
-                    foreach (var item in items)
-                    {
-                        response.Services.Add(item.ToString());
-                    }
+                    response.Services.Add(item.Metadata.Name);
                 }
             }
 

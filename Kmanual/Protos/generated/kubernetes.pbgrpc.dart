@@ -13,15 +13,21 @@ import 'package:grpc/service_api.dart' as $grpc;
 import 'kubernetes.pb.dart' as $0;
 export 'kubernetes.pb.dart';
 
-class RepositoryClient extends $grpc.Client {
+class KubernetesClient extends $grpc.Client {
   static final _$getNamespaceList = $grpc.ClientMethod<
           $0.GetNamespaceListReuqest, $0.GetNamespaceListResponse>(
-      '/Repository/GetNamespaceList',
+      '/Kubernetes/GetNamespaceList',
       ($0.GetNamespaceListReuqest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) =>
           $0.GetNamespaceListResponse.fromBuffer(value));
+  static final _$getKServiceList =
+      $grpc.ClientMethod<$0.GetKServiceListReuqest, $0.GetKServiceListResponse>(
+          '/Kubernetes/GetKServiceList',
+          ($0.GetKServiceListReuqest value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) =>
+              $0.GetKServiceListResponse.fromBuffer(value));
 
-  RepositoryClient($grpc.ClientChannel channel,
+  KubernetesClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
       $core.Iterable<$grpc.ClientInterceptor>? interceptors})
       : super(channel, options: options, interceptors: interceptors);
@@ -31,12 +37,18 @@ class RepositoryClient extends $grpc.Client {
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getNamespaceList, request, options: options);
   }
+
+  $grpc.ResponseFuture<$0.GetKServiceListResponse> getKServiceList(
+      $0.GetKServiceListReuqest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getKServiceList, request, options: options);
+  }
 }
 
-abstract class RepositoryServiceBase extends $grpc.Service {
-  $core.String get $name => 'Repository';
+abstract class KubernetesServiceBase extends $grpc.Service {
+  $core.String get $name => 'Kubernetes';
 
-  RepositoryServiceBase() {
+  KubernetesServiceBase() {
     $addMethod($grpc.ServiceMethod<$0.GetNamespaceListReuqest,
             $0.GetNamespaceListResponse>(
         'GetNamespaceList',
@@ -46,6 +58,15 @@ abstract class RepositoryServiceBase extends $grpc.Service {
         ($core.List<$core.int> value) =>
             $0.GetNamespaceListReuqest.fromBuffer(value),
         ($0.GetNamespaceListResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.GetKServiceListReuqest,
+            $0.GetKServiceListResponse>(
+        'GetKServiceList',
+        getKServiceList_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.GetKServiceListReuqest.fromBuffer(value),
+        ($0.GetKServiceListResponse value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.GetNamespaceListResponse> getNamespaceList_Pre(
@@ -54,6 +75,14 @@ abstract class RepositoryServiceBase extends $grpc.Service {
     return getNamespaceList(call, await request);
   }
 
+  $async.Future<$0.GetKServiceListResponse> getKServiceList_Pre(
+      $grpc.ServiceCall call,
+      $async.Future<$0.GetKServiceListReuqest> request) async {
+    return getKServiceList(call, await request);
+  }
+
   $async.Future<$0.GetNamespaceListResponse> getNamespaceList(
       $grpc.ServiceCall call, $0.GetNamespaceListReuqest request);
+  $async.Future<$0.GetKServiceListResponse> getKServiceList(
+      $grpc.ServiceCall call, $0.GetKServiceListReuqest request);
 }

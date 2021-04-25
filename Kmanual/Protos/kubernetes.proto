@@ -17,6 +17,7 @@ message GetNamespaceListResponse {
 }
 
 message GetKServiceListReuqest {
+  string namespace = 1;
 }
 
 message GetKServiceListResponse {
