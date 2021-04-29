@@ -63,12 +63,15 @@ final $typed_data.Uint8List getManifestReuqestDescriptor = $convert.base64Decode
 const GetManifestResponse$json = const {
   '1': 'GetManifestResponse',
   '2': const [
-    const {'1': 'config', '3': 1, '4': 1, '5': 11, '6': '.Config', '10': 'config'},
+    const {'1': 'schemaVersion', '3': 1, '4': 1, '5': 5, '10': 'schemaVersion'},
+    const {'1': 'mediaType', '3': 2, '4': 1, '5': 9, '10': 'mediaType'},
+    const {'1': 'config', '3': 3, '4': 1, '5': 11, '6': '.Config', '10': 'config'},
+    const {'1': 'layers', '3': 4, '4': 3, '5': 11, '6': '.Layer', '10': 'layers'},
   ],
 };
 
 /// Descriptor for `GetManifestResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List getManifestResponseDescriptor = $convert.base64Decode('ChNHZXRNYW5pZmVzdFJlc3BvbnNlEh8KBmNvbmZpZxgBIAEoCzIHLkNvbmZpZ1IGY29uZmln');
+final $typed_data.Uint8List getManifestResponseDescriptor = $convert.base64Decode('ChNHZXRNYW5pZmVzdFJlc3BvbnNlEiQKDXNjaGVtYVZlcnNpb24YASABKAVSDXNjaGVtYVZlcnNpb24SHAoJbWVkaWFUeXBlGAIgASgJUgltZWRpYVR5cGUSHwoGY29uZmlnGAMgASgLMgcuQ29uZmlnUgZjb25maWcSHgoGbGF5ZXJzGAQgAygLMgYuTGF5ZXJSBmxheWVycw==');
 @$core.Deprecated('Use configDescriptor instead')
 const Config$json = const {
   '1': 'Config',
@@ -81,3 +84,15 @@ const Config$json = const {
 
 /// Descriptor for `Config`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List configDescriptor = $convert.base64Decode('CgZDb25maWcSHAoJbWVkaWFUeXBlGAEgASgJUgltZWRpYVR5cGUSEgoEc2l6ZRgCIAEoBVIEc2l6ZRIWCgZkaWdlc3QYAyABKAlSBmRpZ2VzdA==');
+@$core.Deprecated('Use layerDescriptor instead')
+const Layer$json = const {
+  '1': 'Layer',
+  '2': const [
+    const {'1': 'mediaType', '3': 1, '4': 1, '5': 9, '10': 'mediaType'},
+    const {'1': 'size', '3': 2, '4': 1, '5': 5, '10': 'size'},
+    const {'1': 'digest', '3': 3, '4': 1, '5': 9, '10': 'digest'},
+  ],
+};
+
+/// Descriptor for `Layer`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List layerDescriptor = $convert.base64Decode('CgVMYXllchIcCgltZWRpYVR5cGUYASABKAlSCW1lZGlhVHlwZRISCgRzaXplGAIgASgFUgRzaXplEhYKBmRpZ2VzdBgDIAEoCVIGZGlnZXN0');

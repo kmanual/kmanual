@@ -32,10 +32,20 @@ message GetManifestReuqest {
 }
 
 message GetManifestResponse {
-  Config config = 1;
+  int32 schemaVersion = 1;
+  string mediaType = 2;
+  Config config = 3;
+  repeated Layer layers = 4;
 }
 
 message Config {
+  string mediaType = 1;
+  int32 size = 2;
+  string digest = 3;
+}
+
+message Layer
+{
   string mediaType = 1;
   int32 size = 2;
   string digest = 3;
