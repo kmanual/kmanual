@@ -10,12 +10,12 @@ using k8s.Models;
 namespace Knative
 {
     [KubernetesEntity(Group = "serving.knative.dev", Kind = "Service", ApiVersion = "v1", PluralName = "services")]
-    public partial class Service : IKubernetesObject<V1ObjectMeta>, ISpec<ServiceSpec>, IValidate
+    public partial class KService : IKubernetesObject<V1ObjectMeta>, ISpec<KServiceSpec>, IValidate
     {
         /// <summary>
         /// Initializes a new instance of the Service class.
         /// </summary>
-        public Service()
+        public KService()
         {
             CustomInit();
         }
@@ -42,7 +42,7 @@ namespace Knative
         /// data may not be up to date. Populated by the system. Read-only.
         /// More info:
         /// https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status</param>
-        public Service(string apiVersion = default, string kind = default, V1ObjectMeta metadata = default, ServiceSpec spec = default, ServiceStatus status = default)
+        public KService(string apiVersion = default, string kind = default, V1ObjectMeta metadata = default, KServiceSpec spec = default, KServiceStatus status = default)
         {
             ApiVersion = apiVersion;
             Kind = kind;
@@ -90,7 +90,7 @@ namespace Knative
         /// https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         /// </summary>
         [JsonProperty(PropertyName = "spec")]
-        public ServiceSpec Spec { get; set; }
+        public KServiceSpec Spec { get; set; }
 
         /// <summary>
         /// Gets or sets most recently observed status of the service. This data
@@ -99,7 +99,7 @@ namespace Knative
         /// https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         /// </summary>
         [JsonProperty(PropertyName = "status")]
-        public ServiceStatus Status { get; set; }
+        public KServiceStatus Status { get; set; }
 
         /// <summary>
         /// Validate the object.
