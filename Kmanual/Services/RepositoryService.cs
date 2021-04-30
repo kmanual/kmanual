@@ -49,9 +49,19 @@ namespace Kmanual.Services
         public override async Task<GetManifestResponse> GetManifest(GetManifestReuqest request, ServerCallContext context)
         {
             var manifest = await _catalog.GetManifestAsync(request.Name, request.Tag);
-            var response = new GetManifestResponse();
 
-            if (manifest?.Config != null)
+            if (manifest == null)
+            {
+                throw new RpcException(new Status(StatusCode.NotFound, $"{request.Name}:{request.Tag} Not Found"));
+            }
+
+            var response = new GetManifestResponse
+            {
+                SchemaVersion = manifest.SchemaVersion,
+                MediaType = manifest.MediaType
+            };
+
+            if (manifest.Config != null)
             {
                 response.Config = new Config
                 {
@@ -59,6 +69,21 @@ namespace Kmanual.Services
                     Size = manifest.Config.Size,
                     Digest = manifest.Config.Digest
                 };
+            }
+
+            if (manifest.Layers != null)
+            {
+                foreach (var layer in manifest.Layers)
+                {
+                    var l = new Layer
+                    {
+                        Size = layer.Size,
+                        Digest = layer.Digest,
+                        MediaType = layer.MediaType
+                    };
+
+                    response.Layers.Add(l);
+                }
             }
 
             return response;

@@ -248,17 +248,32 @@ class GetManifestReuqest extends $pb.GeneratedMessage {
 
 class GetManifestResponse extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GetManifestResponse', createEmptyInstance: create)
-    ..aOM<Config>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'config', subBuilder: Config.create)
+    ..a<$core.int>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'schemaVersion', $pb.PbFieldType.O3, protoName: 'schemaVersion')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'mediaType', protoName: 'mediaType')
+    ..aOM<Config>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'config', subBuilder: Config.create)
+    ..pc<Layer>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'layers', $pb.PbFieldType.PM, subBuilder: Layer.create)
     ..hasRequiredFields = false
   ;
 
   GetManifestResponse._() : super();
   factory GetManifestResponse({
+    $core.int? schemaVersion,
+    $core.String? mediaType,
     Config? config,
+    $core.Iterable<Layer>? layers,
   }) {
     final _result = create();
+    if (schemaVersion != null) {
+      _result.schemaVersion = schemaVersion;
+    }
+    if (mediaType != null) {
+      _result.mediaType = mediaType;
+    }
     if (config != null) {
       _result.config = config;
+    }
+    if (layers != null) {
+      _result.layers.addAll(layers);
     }
     return _result;
   }
@@ -284,15 +299,36 @@ class GetManifestResponse extends $pb.GeneratedMessage {
   static GetManifestResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
-  Config get config => $_getN(0);
+  $core.int get schemaVersion => $_getIZ(0);
   @$pb.TagNumber(1)
-  set config(Config v) { setField(1, v); }
+  set schemaVersion($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasConfig() => $_has(0);
+  $core.bool hasSchemaVersion() => $_has(0);
   @$pb.TagNumber(1)
-  void clearConfig() => clearField(1);
-  @$pb.TagNumber(1)
-  Config ensureConfig() => $_ensure(0);
+  void clearSchemaVersion() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get mediaType => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set mediaType($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasMediaType() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearMediaType() => clearField(2);
+
+  @$pb.TagNumber(3)
+  Config get config => $_getN(2);
+  @$pb.TagNumber(3)
+  set config(Config v) { setField(3, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasConfig() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearConfig() => clearField(3);
+  @$pb.TagNumber(3)
+  Config ensureConfig() => $_ensure(2);
+
+  @$pb.TagNumber(4)
+  $core.List<Layer> get layers => $_getList(3);
 }
 
 class Config extends $pb.GeneratedMessage {
@@ -341,6 +377,81 @@ class Config extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static Config getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Config>(create);
   static Config? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get mediaType => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set mediaType($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasMediaType() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearMediaType() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.int get size => $_getIZ(1);
+  @$pb.TagNumber(2)
+  set size($core.int v) { $_setSignedInt32(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasSize() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearSize() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get digest => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set digest($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasDigest() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearDigest() => clearField(3);
+}
+
+class Layer extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Layer', createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'mediaType', protoName: 'mediaType')
+    ..a<$core.int>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'size', $pb.PbFieldType.O3)
+    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'digest')
+    ..hasRequiredFields = false
+  ;
+
+  Layer._() : super();
+  factory Layer({
+    $core.String? mediaType,
+    $core.int? size,
+    $core.String? digest,
+  }) {
+    final _result = create();
+    if (mediaType != null) {
+      _result.mediaType = mediaType;
+    }
+    if (size != null) {
+      _result.size = size;
+    }
+    if (digest != null) {
+      _result.digest = digest;
+    }
+    return _result;
+  }
+  factory Layer.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory Layer.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  Layer clone() => Layer()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  Layer copyWith(void Function(Layer) updates) => super.copyWith((message) => updates(message as Layer)) as Layer; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static Layer create() => Layer._();
+  Layer createEmptyInstance() => create();
+  static $pb.PbList<Layer> createRepeated() => $pb.PbList<Layer>();
+  @$core.pragma('dart2js:noInline')
+  static Layer getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Layer>(create);
+  static Layer? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.String get mediaType => $_getSZ(0);

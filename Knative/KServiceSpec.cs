@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Knative
 {
-    public class ServiceSpec
+    public class KServiceSpec
     {
         public void Validate()
         {

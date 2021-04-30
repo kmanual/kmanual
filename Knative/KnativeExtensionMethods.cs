@@ -335,7 +335,7 @@ namespace Knative
             return _result;
         }
 
-        public static async Task<HttpOperationResponse<ServiceList>> ListNamespacedKServiceWithHttpMessagesAsync(this IKubernetes kubernetes, string @namespace, bool? allowWatchBookmarks = default, string continueParameter = default, string fieldSelector = default, string labelSelector = default, int? limit = default, string resourceVersion = default, string resourceVersionMatch = default, int? timeoutSeconds = default, bool? watch = default, string pretty = default, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default)
+        public static async Task<HttpOperationResponse<KServiceList>> ListNamespacedKServiceWithHttpMessagesAsync(this IKubernetes kubernetes, string @namespace, bool? allowWatchBookmarks = default, string continueParameter = default, string fieldSelector = default, string labelSelector = default, int? limit = default, string resourceVersion = default, string resourceVersionMatch = default, int? timeoutSeconds = default, bool? watch = default, string pretty = default, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default)
         {
             var group = "serving.knative.dev";
             var version = "v1";
@@ -491,18 +491,19 @@ namespace Knative
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<ServiceList>
+            var _result = new HttpOperationResponse<KServiceList>
             {
                 Request = _httpRequest,
                 Response = _httpResponse
             };
+
             // Deserialize Response
             if ((int)_statusCode == 200)
             {
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<ServiceList>(_responseContent, kubernetes.DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<KServiceList>(_responseContent, kubernetes.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -521,7 +522,7 @@ namespace Knative
             return _result;
         }
 
-        public static async Task<ServiceList> ListNamespacedKServiceAsync(this IKubernetes operations, string namespaceParameter, bool? allowWatchBookmarks = default, string continueParameter = default, string fieldSelector = default, string labelSelector = default, int? limit = default, string resourceVersion = default, string resourceVersionMatch = default, int? timeoutSeconds = default, bool? watch = default, string pretty = default, CancellationToken cancellationToken = default)
+        public static async Task<KServiceList> ListNamespacedKServiceAsync(this IKubernetes operations, string namespaceParameter, bool? allowWatchBookmarks = default(bool?), string continueParameter = default(string), string fieldSelector = default(string), string labelSelector = default(string), int? limit = default(int?), string resourceVersion = default(string), string resourceVersionMatch = default(string), int? timeoutSeconds = default(int?), bool? watch = default(bool?), string pretty = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
             using var _result = await operations.ListNamespacedKServiceWithHttpMessagesAsync(namespaceParameter, allowWatchBookmarks, continueParameter, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, timeoutSeconds, watch, pretty, null, cancellationToken).ConfigureAwait(false);
             return _result.Body;

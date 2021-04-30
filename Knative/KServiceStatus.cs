@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Knative
 {
-    public class ServiceStatus
+    public class KServiceStatus
     {
         public StatusAddress Address { get; set; }
         public Condition[] Conditions { get; set; }

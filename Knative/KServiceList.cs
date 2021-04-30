@@ -9,7 +9,7 @@ using System.Linq;
 namespace Knative
 {
     [KubernetesEntity(Group = "serving.knative.dev", Kind = "ServiceList", ApiVersion = "v1", PluralName = "services")]
-    public partial class ServiceList : IKubernetesObject<V1ListMeta>, IItems<Service>, IValidate
+    public partial class KServiceList : IKubernetesObject<V1ListMeta>, IItems<KService>, IValidate
     {
         public const string KubeApiVersion = "v1";
         public const string KubeKind = "ServiceList";
@@ -18,7 +18,7 @@ namespace Knative
         /// <summary>
         /// Initializes a new instance of the V1PodList class.
         /// </summary>
-        public ServiceList()
+        public KServiceList()
         {
             CustomInit();
         }
@@ -40,7 +40,7 @@ namespace Knative
         /// https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds</param>
         /// <param name="metadata">Standard list metadata. More info:
         /// https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds</param>
-        public ServiceList(IList<Service> items, string apiVersion = default(string), string kind = default(string), V1ListMeta metadata = default(V1ListMeta))
+        public KServiceList(IList<KService> items, string apiVersion = default(string), string kind = default(string), V1ListMeta metadata = default(V1ListMeta))
         {
             ApiVersion = apiVersion;
             Items = items;
@@ -69,7 +69,7 @@ namespace Knative
         /// https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md
         /// </summary>
         [JsonProperty(PropertyName = "items")]
-        public IList<Service> Items { get; set; }
+        public IList<KService> Items { get; set; }
 
         /// <summary>
         /// Gets or sets kind is a string value representing the REST resource
