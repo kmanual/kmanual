@@ -7,13 +7,14 @@ option csharp_namespace = "Kmanual";
 service Projects {
   rpc GetList (GetListRequest) returns (GetListResponse);
   rpc Create (CreateReuqest) returns (CreateResponse);
+  rpc Deploy (DeployRequest) returns (DeployResponse);
 }
 
 message CreateReuqest {
-  string name = 1;
-  string image = 2;
-  optional string tag = 3;
-  string service = 4;
+  string displayName = 1;
+  string name = 2;
+  string image = 3;
+  optional string tag = 4;
   optional string namespace = 5;
 }
 
@@ -29,11 +30,20 @@ message GetListResponse {
   repeated Project projects = 1;
 }
 
+
+message DeployRequest {
+  string id = 1;
+}
+
+message DeployResponse {
+  bool success = 1;
+}
+
 message Project {
   string id = 1;
-  string name = 2;
-  string image = 3;
-  optional string tag = 4;
-  string service = 5;
+  string displayName = 2;
+  string name = 3;
+  string image = 4;
+  optional string tag = 5;
   optional string namespace = 6;
 }

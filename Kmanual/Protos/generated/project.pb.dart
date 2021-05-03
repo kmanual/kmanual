@@ -11,23 +11,26 @@ import 'package:protobuf/protobuf.dart' as $pb;
 
 class CreateReuqest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CreateReuqest', createEmptyInstance: create)
-    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name')
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'image')
-    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'tag')
-    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'service')
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'displayName', protoName: 'displayName')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name')
+    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'image')
+    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'tag')
     ..aOS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'namespace')
     ..hasRequiredFields = false
   ;
 
   CreateReuqest._() : super();
   factory CreateReuqest({
+    $core.String? displayName,
     $core.String? name,
     $core.String? image,
     $core.String? tag,
-    $core.String? service,
     $core.String? namespace,
   }) {
     final _result = create();
+    if (displayName != null) {
+      _result.displayName = displayName;
+    }
     if (name != null) {
       _result.name = name;
     }
@@ -36,9 +39,6 @@ class CreateReuqest extends $pb.GeneratedMessage {
     }
     if (tag != null) {
       _result.tag = tag;
-    }
-    if (service != null) {
-      _result.service = service;
     }
     if (namespace != null) {
       _result.namespace = namespace;
@@ -67,40 +67,40 @@ class CreateReuqest extends $pb.GeneratedMessage {
   static CreateReuqest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.String get name => $_getSZ(0);
+  $core.String get displayName => $_getSZ(0);
   @$pb.TagNumber(1)
-  set name($core.String v) { $_setString(0, v); }
+  set displayName($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasName() => $_has(0);
+  $core.bool hasDisplayName() => $_has(0);
   @$pb.TagNumber(1)
-  void clearName() => clearField(1);
+  void clearDisplayName() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.String get image => $_getSZ(1);
+  $core.String get name => $_getSZ(1);
   @$pb.TagNumber(2)
-  set image($core.String v) { $_setString(1, v); }
+  set name($core.String v) { $_setString(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasImage() => $_has(1);
+  $core.bool hasName() => $_has(1);
   @$pb.TagNumber(2)
-  void clearImage() => clearField(2);
+  void clearName() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.String get tag => $_getSZ(2);
+  $core.String get image => $_getSZ(2);
   @$pb.TagNumber(3)
-  set tag($core.String v) { $_setString(2, v); }
+  set image($core.String v) { $_setString(2, v); }
   @$pb.TagNumber(3)
-  $core.bool hasTag() => $_has(2);
+  $core.bool hasImage() => $_has(2);
   @$pb.TagNumber(3)
-  void clearTag() => clearField(3);
+  void clearImage() => clearField(3);
 
   @$pb.TagNumber(4)
-  $core.String get service => $_getSZ(3);
+  $core.String get tag => $_getSZ(3);
   @$pb.TagNumber(4)
-  set service($core.String v) { $_setString(3, v); }
+  set tag($core.String v) { $_setString(3, v); }
   @$pb.TagNumber(4)
-  $core.bool hasService() => $_has(3);
+  $core.bool hasTag() => $_has(3);
   @$pb.TagNumber(4)
-  void clearService() => clearField(4);
+  void clearTag() => clearField(4);
 
   @$pb.TagNumber(5)
   $core.String get namespace => $_getSZ(4);
@@ -231,13 +231,107 @@ class GetListResponse extends $pb.GeneratedMessage {
   $core.List<Project> get projects => $_getList(0);
 }
 
+class DeployRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'DeployRequest', createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'id')
+    ..hasRequiredFields = false
+  ;
+
+  DeployRequest._() : super();
+  factory DeployRequest({
+    $core.String? id,
+  }) {
+    final _result = create();
+    if (id != null) {
+      _result.id = id;
+    }
+    return _result;
+  }
+  factory DeployRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory DeployRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  DeployRequest clone() => DeployRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  DeployRequest copyWith(void Function(DeployRequest) updates) => super.copyWith((message) => updates(message as DeployRequest)) as DeployRequest; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static DeployRequest create() => DeployRequest._();
+  DeployRequest createEmptyInstance() => create();
+  static $pb.PbList<DeployRequest> createRepeated() => $pb.PbList<DeployRequest>();
+  @$core.pragma('dart2js:noInline')
+  static DeployRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DeployRequest>(create);
+  static DeployRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get id => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set id($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearId() => clearField(1);
+}
+
+class DeployResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'DeployResponse', createEmptyInstance: create)
+    ..aOB(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'success')
+    ..hasRequiredFields = false
+  ;
+
+  DeployResponse._() : super();
+  factory DeployResponse({
+    $core.bool? success,
+  }) {
+    final _result = create();
+    if (success != null) {
+      _result.success = success;
+    }
+    return _result;
+  }
+  factory DeployResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory DeployResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  DeployResponse clone() => DeployResponse()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  DeployResponse copyWith(void Function(DeployResponse) updates) => super.copyWith((message) => updates(message as DeployResponse)) as DeployResponse; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static DeployResponse create() => DeployResponse._();
+  DeployResponse createEmptyInstance() => create();
+  static $pb.PbList<DeployResponse> createRepeated() => $pb.PbList<DeployResponse>();
+  @$core.pragma('dart2js:noInline')
+  static DeployResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DeployResponse>(create);
+  static DeployResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get success => $_getBF(0);
+  @$pb.TagNumber(1)
+  set success($core.bool v) { $_setBool(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasSuccess() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearSuccess() => clearField(1);
+}
+
 class Project extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Project', createEmptyInstance: create)
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'id')
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name')
-    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'image')
-    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'tag')
-    ..aOS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'service')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'displayName', protoName: 'displayName')
+    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name')
+    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'image')
+    ..aOS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'tag')
     ..aOS(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'namespace')
     ..hasRequiredFields = false
   ;
@@ -245,15 +339,18 @@ class Project extends $pb.GeneratedMessage {
   Project._() : super();
   factory Project({
     $core.String? id,
+    $core.String? displayName,
     $core.String? name,
     $core.String? image,
     $core.String? tag,
-    $core.String? service,
     $core.String? namespace,
   }) {
     final _result = create();
     if (id != null) {
       _result.id = id;
+    }
+    if (displayName != null) {
+      _result.displayName = displayName;
     }
     if (name != null) {
       _result.name = name;
@@ -263,9 +360,6 @@ class Project extends $pb.GeneratedMessage {
     }
     if (tag != null) {
       _result.tag = tag;
-    }
-    if (service != null) {
-      _result.service = service;
     }
     if (namespace != null) {
       _result.namespace = namespace;
@@ -303,40 +397,40 @@ class Project extends $pb.GeneratedMessage {
   void clearId() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.String get name => $_getSZ(1);
+  $core.String get displayName => $_getSZ(1);
   @$pb.TagNumber(2)
-  set name($core.String v) { $_setString(1, v); }
+  set displayName($core.String v) { $_setString(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasName() => $_has(1);
+  $core.bool hasDisplayName() => $_has(1);
   @$pb.TagNumber(2)
-  void clearName() => clearField(2);
+  void clearDisplayName() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.String get image => $_getSZ(2);
+  $core.String get name => $_getSZ(2);
   @$pb.TagNumber(3)
-  set image($core.String v) { $_setString(2, v); }
+  set name($core.String v) { $_setString(2, v); }
   @$pb.TagNumber(3)
-  $core.bool hasImage() => $_has(2);
+  $core.bool hasName() => $_has(2);
   @$pb.TagNumber(3)
-  void clearImage() => clearField(3);
+  void clearName() => clearField(3);
 
   @$pb.TagNumber(4)
-  $core.String get tag => $_getSZ(3);
+  $core.String get image => $_getSZ(3);
   @$pb.TagNumber(4)
-  set tag($core.String v) { $_setString(3, v); }
+  set image($core.String v) { $_setString(3, v); }
   @$pb.TagNumber(4)
-  $core.bool hasTag() => $_has(3);
+  $core.bool hasImage() => $_has(3);
   @$pb.TagNumber(4)
-  void clearTag() => clearField(4);
+  void clearImage() => clearField(4);
 
   @$pb.TagNumber(5)
-  $core.String get service => $_getSZ(4);
+  $core.String get tag => $_getSZ(4);
   @$pb.TagNumber(5)
-  set service($core.String v) { $_setString(4, v); }
+  set tag($core.String v) { $_setString(4, v); }
   @$pb.TagNumber(5)
-  $core.bool hasService() => $_has(4);
+  $core.bool hasTag() => $_has(4);
   @$pb.TagNumber(5)
-  void clearService() => clearField(5);
+  void clearTag() => clearField(5);
 
   @$pb.TagNumber(6)
   $core.String get namespace => $_getSZ(5);

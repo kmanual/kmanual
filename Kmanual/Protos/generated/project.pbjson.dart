@@ -12,10 +12,10 @@ import 'dart:typed_data' as $typed_data;
 const CreateReuqest$json = const {
   '1': 'CreateReuqest',
   '2': const [
-    const {'1': 'name', '3': 1, '4': 1, '5': 9, '10': 'name'},
-    const {'1': 'image', '3': 2, '4': 1, '5': 9, '10': 'image'},
-    const {'1': 'tag', '3': 3, '4': 1, '5': 9, '9': 0, '10': 'tag', '17': true},
-    const {'1': 'service', '3': 4, '4': 1, '5': 9, '10': 'service'},
+    const {'1': 'displayName', '3': 1, '4': 1, '5': 9, '10': 'displayName'},
+    const {'1': 'name', '3': 2, '4': 1, '5': 9, '10': 'name'},
+    const {'1': 'image', '3': 3, '4': 1, '5': 9, '10': 'image'},
+    const {'1': 'tag', '3': 4, '4': 1, '5': 9, '9': 0, '10': 'tag', '17': true},
     const {'1': 'namespace', '3': 5, '4': 1, '5': 9, '9': 1, '10': 'namespace', '17': true},
   ],
   '8': const [
@@ -25,7 +25,7 @@ const CreateReuqest$json = const {
 };
 
 /// Descriptor for `CreateReuqest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List createReuqestDescriptor = $convert.base64Decode('Cg1DcmVhdGVSZXVxZXN0EhIKBG5hbWUYASABKAlSBG5hbWUSFAoFaW1hZ2UYAiABKAlSBWltYWdlEhUKA3RhZxgDIAEoCUgAUgN0YWeIAQESGAoHc2VydmljZRgEIAEoCVIHc2VydmljZRIhCgluYW1lc3BhY2UYBSABKAlIAVIJbmFtZXNwYWNliAEBQgYKBF90YWdCDAoKX25hbWVzcGFjZQ==');
+final $typed_data.Uint8List createReuqestDescriptor = $convert.base64Decode('Cg1DcmVhdGVSZXVxZXN0EiAKC2Rpc3BsYXlOYW1lGAEgASgJUgtkaXNwbGF5TmFtZRISCgRuYW1lGAIgASgJUgRuYW1lEhQKBWltYWdlGAMgASgJUgVpbWFnZRIVCgN0YWcYBCABKAlIAFIDdGFniAEBEiEKCW5hbWVzcGFjZRgFIAEoCUgBUgluYW1lc3BhY2WIAQFCBgoEX3RhZ0IMCgpfbmFtZXNwYWNl');
 @$core.Deprecated('Use createResponseDescriptor instead')
 const CreateResponse$json = const {
   '1': 'CreateResponse',
@@ -53,15 +53,35 @@ const GetListResponse$json = const {
 
 /// Descriptor for `GetListResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getListResponseDescriptor = $convert.base64Decode('Cg9HZXRMaXN0UmVzcG9uc2USJAoIcHJvamVjdHMYASADKAsyCC5Qcm9qZWN0Ughwcm9qZWN0cw==');
+@$core.Deprecated('Use deployRequestDescriptor instead')
+const DeployRequest$json = const {
+  '1': 'DeployRequest',
+  '2': const [
+    const {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
+  ],
+};
+
+/// Descriptor for `DeployRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List deployRequestDescriptor = $convert.base64Decode('Cg1EZXBsb3lSZXF1ZXN0Eg4KAmlkGAEgASgJUgJpZA==');
+@$core.Deprecated('Use deployResponseDescriptor instead')
+const DeployResponse$json = const {
+  '1': 'DeployResponse',
+  '2': const [
+    const {'1': 'success', '3': 1, '4': 1, '5': 8, '10': 'success'},
+  ],
+};
+
+/// Descriptor for `DeployResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List deployResponseDescriptor = $convert.base64Decode('Cg5EZXBsb3lSZXNwb25zZRIYCgdzdWNjZXNzGAEgASgIUgdzdWNjZXNz');
 @$core.Deprecated('Use projectDescriptor instead')
 const Project$json = const {
   '1': 'Project',
   '2': const [
     const {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
-    const {'1': 'name', '3': 2, '4': 1, '5': 9, '10': 'name'},
-    const {'1': 'image', '3': 3, '4': 1, '5': 9, '10': 'image'},
-    const {'1': 'tag', '3': 4, '4': 1, '5': 9, '9': 0, '10': 'tag', '17': true},
-    const {'1': 'service', '3': 5, '4': 1, '5': 9, '10': 'service'},
+    const {'1': 'displayName', '3': 2, '4': 1, '5': 9, '10': 'displayName'},
+    const {'1': 'name', '3': 3, '4': 1, '5': 9, '10': 'name'},
+    const {'1': 'image', '3': 4, '4': 1, '5': 9, '10': 'image'},
+    const {'1': 'tag', '3': 5, '4': 1, '5': 9, '9': 0, '10': 'tag', '17': true},
     const {'1': 'namespace', '3': 6, '4': 1, '5': 9, '9': 1, '10': 'namespace', '17': true},
   ],
   '8': const [
@@ -71,4 +91,4 @@ const Project$json = const {
 };
 
 /// Descriptor for `Project`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List projectDescriptor = $convert.base64Decode('CgdQcm9qZWN0Eg4KAmlkGAEgASgJUgJpZBISCgRuYW1lGAIgASgJUgRuYW1lEhQKBWltYWdlGAMgASgJUgVpbWFnZRIVCgN0YWcYBCABKAlIAFIDdGFniAEBEhgKB3NlcnZpY2UYBSABKAlSB3NlcnZpY2USIQoJbmFtZXNwYWNlGAYgASgJSAFSCW5hbWVzcGFjZYgBAUIGCgRfdGFnQgwKCl9uYW1lc3BhY2U=');
+final $typed_data.Uint8List projectDescriptor = $convert.base64Decode('CgdQcm9qZWN0Eg4KAmlkGAEgASgJUgJpZBIgCgtkaXNwbGF5TmFtZRgCIAEoCVILZGlzcGxheU5hbWUSEgoEbmFtZRgDIAEoCVIEbmFtZRIUCgVpbWFnZRgEIAEoCVIFaW1hZ2USFQoDdGFnGAUgASgJSABSA3RhZ4gBARIhCgluYW1lc3BhY2UYBiABKAlIAVIJbmFtZXNwYWNliAEBQgYKBF90YWdCDAoKX25hbWVzcGFjZQ==');
