@@ -9,6 +9,7 @@
   <ItemGroup>
     <Protobuf Include="Protos\repository.proto" GrpcServices="Server" />
     <Protobuf Include="Protos\kubernetes.proto" GrpcServices="Server" />
+    <Protobuf Include="Protos\project.proto" GrpcServices="Server" />
   </ItemGroup>
 
   <ItemGroup>
