@@ -4,6 +4,7 @@ using k8s.Models;
 using Kmanual;
 using Kmanual.Docker;
 using Knative;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Linq;
 using System;
@@ -17,9 +18,11 @@ namespace Kmanual.Services
     {
         private readonly ILogger<ProjectService> _logger;
         private readonly k8s.Kubernetes client;
+        private readonly IConfiguration configuration;
 
-        public ProjectService(ILogger<ProjectService> logger)
+        public ProjectService(ILogger<ProjectService> logger, IConfiguration configuration)
         {
+            this.configuration = configuration;
             _logger = logger;
 
             //var config = KubernetesClientConfiguration.InClusterConfig();
@@ -83,12 +86,25 @@ namespace Kmanual.Services
         {
             var response = new GetListResponse();
 
+            var projects = configuration.GetSection("Projects").Get<List<Project>>();
+
+            response.Projects.AddRange(projects);
+
             return Task.FromResult(response);
         }
 
         public override async Task<DeployResponse> Deploy(DeployRequest request, ServerCallContext context)
         {
-            var response = new DeployResponse();
+            var projects = configuration.GetSection("Projects").Get<List<Project>>();
+
+            var project = projects.FirstOrDefault(prj => prj.Id == request.Id);
+
+            if (project == null)
+            {
+                throw new RpcException(new Status(StatusCode.NotFound, $"Project not found: {request.Id}"));
+            }
+
+            var response = new DeployResponse { Success = true };
 
             await Task.Delay(10);
 
